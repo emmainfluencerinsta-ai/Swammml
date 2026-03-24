@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7SwanStudio— We Build  Digital Products | Game, App, Web & Tool Development</title>
+    <meta name="description" content="7SwanStudio
+    delivers cutting-edge Game, App, Web, and Custom Tool development services. Fast delivery, modern UI/UX, scalable solutions with global support.">
+    <meta name="keywords" content="game development, app development, web development, custom tools, software development, digital products, 7Swan Traders">
+    <meta name="author" content="7Swan Studio">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="7SwanStudio— Build Powerful Digital Products">
+    <meta property="og:description" content="Cutting-edge Game, App, Web & Tool Development services. Fast delivery, scalable solutions, global support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://7swanstudio.com">
+    <meta property="og:image" content="https://7swanstudio.com/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="7SwanStudio — Build Powerful Digital Products">
+    <meta name="twitter:description" content="Cutting-edge Game, App, Web & Tool Development services.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#000000',
+                            red: '#FF0000',
+                            darkred: '#CC0000',
+                            glow: 'rgba(255, 0, 0, 0.15)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'gradient-shift': 'gradientShift 8s ease infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(255,0,0,0.3), 0 0 60px rgba(255,0,0,0.1)' },
+                            '50%': { boxShadow: '0 0 40px rgba(255,0,0,0.6), 0 0 100px rgba(255,0,0,0.2)' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === BASE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #000000;
+            color: #FFFFFF;
+            font-family: 'Inter', system-ui, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection {
+            background: rgba(255, 0, 0, 0.4);
+            color: #fff;
+        }
+
+        /* === SCROLLBAR === */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #FF0000; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #CC0000; }
+
+        /* === LOGO TEXT === */
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo-7 {
+            color: #FF0000;
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+
+        /* === HERO GLOW === */
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,0,0,0.12) 0%, rgba(255,0,0,0.04) 40%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-glow-1 {
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hero-glow-2 {
+            bottom: -150px;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,0,0,0.08) 0%, transparent 60%);
+        }
+
+        /* === GRID OVERLAY === */
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,0,0,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+        }
+
+        /* === PARTICLES === */
+        .particles-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.4);
+            border-radius: 50%;
+            animation: particleFloat linear infinite;
+        }
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* === CTA BUTTON === */
+        .cta-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: #FF0000;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), 0 4px 15px rgba(0,0,0,0.5);
+            text-decoration: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+        .cta-btn:hover {
+            background: #CC0000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.5), 0 8px 30px rgba(0,0,0,0.6);
+        }
+        .cta-btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        .cta-btn:active {
+            transform: translateY(0);
+        }
+
+        /* === CTA OUTLINE === */
+        .cta-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: transparent;
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255,0,0,0.5);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        .cta-outline:hover {
+            border-color: #FF0000;
+            background: rgba(255,0,0,0.08);
+            box-shadow: 0 0 25px rgba(255,0,0,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* === SERVICE CARD === */
+        .service-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            cursor: default;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF0000, transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(255,0,0,0.06) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,0,0,0.25);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,0,0,0.08);
+        }
+        .service-card:hover::before,
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        .service-card .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 0, 0, 0.08);
+            border: 1px solid rgba(255,0,0,0.15);
+            margin-bottom: 24px;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .service-card:hover .card-icon {
+            background: rgba(255, 0, 0, 0.15);
+            border-color: rgba(255,0,0,0.3);
+            box-shadow: 0 0 30px rgba(255,0,0,0.2);
+            transform: scale(1.1);
+        }
+        .service-card .card-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #FF0000;
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover .card-icon svg {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        /* === WHY CHOOSE US ITEM === */
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 28px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+        }
+        .why-item:hover {
+            background: rgba(255,0,0,0.04);
+            border-color: rgba(255,0,0,0.15);
+            transform: translateX(8px);
+        }
+        .why-item .why-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(255,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+        .why-item:hover .why-icon {
+            background: rgba(255,0,0,0.2);
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+        }
+
+        /* === NAV === */
+        .nav-link {
+            position: relative;
+            color: rgba(255,255,255,0.7);
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #FFFFFF;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF0000;
+            transition: width 0.3s;
+            border-radius: 1px;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* === NAVBAR BG === */
+        .navbar {
+            transition: all 0.4s ease;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.85) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,0,0,0.1);
+        }
+
+        /* === SECTION REVEAL === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* === FORM === */
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+        .form-input:focus {
+            border-color: rgba(255,0,0,0.5);
+            background: rgba(255,0,0,0.03);
+            box-shadow: 0 0 20px rgba(255,0,0,0.1);
+        }
+
+        /* === MOBILE MENU === */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 360px;
+            height: 100vh;
+            background: rgba(5,5,5,0.98);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 100;
+            transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            border-left: 1px solid rgba(255,0,0,0.1);
+            padding: 100px 40px 40px;
+        }
+        .mobile-menu.open {
+            right: 0;
+        }
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-nav-link {
+            display: block;
+            padding: 18px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+        .mobile-nav-link:hover {
+            color: #FF0000;
+            padding-left: 10px;
+        }
+
+        /* === HAMBURGER === */
+        .hamburger {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            z-index: 101;
+        }
+        .hamburger span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 9px; width: 70%; }
+        .hamburger span:nth-child(3) { top: 18px; }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 9px;
+        }
+
+        /* === STATS COUNTER === */
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: #FF0000;
+            line-height: 1;
+        }
+
+        /* === SECTION DIVIDER === */
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #FF0000, transparent);
+            border-radius: 2px;
+        }
+
+        /* === FLOATING ORBS === */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,0,0,0.06), transparent 70%);
+            top: 20%;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,0,0,0.04), transparent 70%);
+            bottom: 10%;
+            left: -50px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        /* === TOAST NOTIFICATION === */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 16px 28px;
+            background: rgba(255,0,0,0.9);
+            color: #fff;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 200;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            box-shadow: 0 10px 40px rgba(255,0,0,0.3);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* === MISC === */
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .red-gradient-text {
+            background: linear-gradient(135deg, #FF0000 0%, #FF4444 50%, #FF0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================== -->
+    <!--           NAVBAR               -->
+    <!-- ============================== -->
+    <nav id="navbar" class="navbar fixed top-0 left-0 w-full z-50 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 z-50 relative">
+                <div class="w-10 h-10 rounded-lg bg-brand-red flex items-center justify-center">
+                    <span class="text-white font-bold text-lg font-display">7S</span>
+                </div>
+                <span class="logo-text text-lg hidden sm:block">
+                    <span class="logo-7">7</span>Swan Studio
+                </span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#why-us" class="nav-link">Why Us</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="cta-btn !py-3 !px-7 !text-sm">Get Started</a>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="lg:hidden hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-nav-link" onclick="closeMobile()">Home</a>
+        <a href="#services" class="mobile-nav-link" onclick="closeMobile()">Services</a>
+        <a href="#about" class="mobile-nav-link" onclick="closeMobile()">About</a>
+        <a href="#why-us" class="mobile-nav-link" onclick="closeMobile()">Why Us</a>
+        <a href="#contact" class="mobile-nav-link" onclick="closeMobile()">Contact</a>
+        <div class="mt-8">
+            <a href="#contact" class="cta-btn w-full justify-center" onclick="closeMobile()">Get Started</a>
+        </div>
+    </div>
+   <section id="hero" class="relative min-h-screen flex items-center justify-center bg-black text-white px-6 overflow-hidden">
+
+  <!-- CENTER GLOW -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="w-[500px] h-[500px] bg-red-600 opacity-20 rounded-full blur-[120px]"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-4xl text-center">
+
+    <!-- Badge -->
+    <div class="inline-block mb-6 px-4 py-2 border border-red-600/30 bg-red-600/10 rounded-full text-sm text-red-500">
+      Now Accepting Projects
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+      Build <span class="text-red-600">High-Impact</span><br>
+      Digital Products
+    </h1>
+
+    <!-- Subtext -->
+    <p class="text-gray-400 max-w-xl mx-auto mb-8">
+      Game · App · Web · Tools Development  
+      Fast execution. Clean design. Real results.
+    </p>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#contact" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-semibold shadow-lg shadow-red-600/30 transition">
+        Start Project →
+      </a>
+      <a href="#services" class="border border-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-600/10 transition">
+        View Services
+      </a>
+    </div>
+
+  </div>
+</section>
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- BG Effects -->
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="grid-overlay"></div>
+        <div class="particles-container" id="particles"></div>
+
+        <!-- Decorative ring -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full border border-red-900/10 animate-spin-slow pointer-events-none z-0"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full border border-red-900/5 animate-spin-slow pointer-events-none z-0" style="animation-direction: reverse; animation-duration: 30s;"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <!-- Badge -->
+            <div class="reveal inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-red-900/30 bg-red-900/10 mb-8">
+                <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                <span class="text-sm font-medium text-red-400 tracking-wide uppercase">Now Accepting Projects</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="reveal font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6" style="transition-delay: 0.15s;">
+                Build <span class="red-gradient-text">Powerful</span><br>
+                Digital Products
+            </h1>
+
+            <!-- Subtext -->
+            <p class="reveal text-lg sm:text-xl md:text-2xl text-white/50 max-w-2xl mx-auto mb-4 font-light" style="transition-delay: 0.3s;">
+                Game · App · Web · Tool Development
+            </p>
+            <p class="reveal text-base text-white/30 max-w-xl mx-auto mb-10" style="transition-delay: 0.4s;">
+                We transform ideas into high-performance digital experiences<br class="hidden sm:block"> that scale globally and drive real results.
+            </p>
+
+            <!-- CTAs -->
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5" style="transition-delay: 0.5s;">
+                <a href="#contact" class="cta-btn text-base">
+                    Get Started
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
+                <a href="#services" class="cta-outline text-base">
+                    Explore Services
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="reveal mt-16 md:mt-24 flex flex-col items-center gap-2 text-white/20" style="transition-delay: 0.7s;">
+                <span class="text-xs tracking-widest uppercase">Scroll to explore</span>
+                <div class="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
+                    <div class="w-1 h-2 bg-white/40 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="py-24 bg-black text-white px-6">
+  <div class="max-w-6xl mx-auto text-center">
+
+    <!-- Header -->
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">
+      Our <span class="text-red-600">Services</span>
+    </h2>
+    <p class="text-gray-400 max-w-xl mx-auto mb-14">
+      We build scalable digital products that perform, convert, and grow.
+    </p>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <div class="text-red-600 text-3xl mb-4">🎮</div>
+        <h3 class="text-lg font-semibold mb-2">Game Development</h3>
+        <p class="text-gray-400 text-sm">
+          High-performance 2D/3D games with smooth mechanics and engaging UI.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <div class="text-red-600 text-3xl mb-4">📱</div>
+        <h3 class="text-lg font-semibold mb-2">App Development</h3>
+        <p class="text-gray-400 text-sm">
+          Android & iOS apps built for speed, usability, and scalability.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <div class="text-red-600 text-3xl mb-4">🌐</div>
+        <h3 class="text-lg font-semibold mb-2">Web Development</h3>
+        <p class="text-gray-400 text-sm">
+          Fast, SEO-optimized websites designed to convert visitors into users.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <div class="text-red-600 text-3xl mb-4">⚙️</div>
+        <h3 class="text-lg font-semibold mb-2">Custom Tools</h3>
+        <p class="text-gray-400 text-sm">
+          Automation tools, dashboards, and systems to boost productivity.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-14">
+      <a href="#contact" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-semibold shadow-lg shadow-red-600/30 transition">
+        Start Your Project →
+      </a>
+    </div>
+
+  </div>
+</section>
+    <section id="services" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="orb orb-1"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header -->
+            <div class="text-center mb-16 md:mb-20">
+                <span class="reveal text-brand-red text-sm font-semibold tracking-widest uppercase">Our Services</span>
+                <h2 class="reveal font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-5" style="transition-delay: 0.1s;">
+                    What We <span class="red-gradient-text">Build</span>
+                </h2>
+                <p class="reveal text-white/40 max-w-xl mx-auto text-lg" style="transition-delay: 0.2s;">
+                    From immersive games to enterprise-grade tools — we deliver end-to-end digital solutions.
+                </p>
+                <div class="reveal section-divider mx-auto mt-6" style="transition-delay: 0.25s;"></div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
+                <!-- Game Dev -->
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .657-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 relative z-10">Game Development</h3>
+                    <p class="text-white/40 text-sm leading-relaxed relative z-10">Immersive 2D/3D games with stunning visuals, smooth mechanics, and cross-platform compatibility. From mobile to console.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-red text-sm font-semibold relative z-10 group cursor-pointer">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- App Dev -->
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 relative z-10">App Development</h3>
+                    <p class="text-white/40 text-sm leading-relaxed relative z-10">Native & cross-platform mobile apps with elegant UI, robust backends, and seamless user experiences for iOS & Android.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-red text-sm font-semibold relative z-10 group cursor-pointer">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Web Dev -->
+                <div class="service-card reveal" style="transition-delay: 0.3s;">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 relative z-10">Web Development</h3>
+                    <p class="text-white/40 text-sm leading-relaxed relative z-10">Blazing-fast, SEO-optimized websites and web apps. From landing pages to full-stack SaaS platforms built to convert.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-red text-sm font-semibold relative z-10 group cursor-pointer">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Custom Tools -->
+                <div class="service-card reveal" style="transition-delay: 0.4s;">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 relative z-10">Custom Tools</h3>
+                    <p class="text-white/40 text-sm leading-relaxed relative z-10">Tailored automation tools, dashboards, APIs, and internal systems designed to supercharge your workflow and productivity.</p>
+                    <div class="mt-6 flex items-center gap-2 text-brand-red text-sm font-semibold relative z-10 group cursor-pointer">
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="about" class="py-24 bg-black text-white px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left Content -->
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        About <span class="text-red-600">7Swan</span>
+      </h2>
+
+      <p class="text-gray-400 mb-6 leading-relaxed">
+        7SwanStudio builds high-performance digital products for startups, creators, and businesses worldwide. We focus on speed, clean architecture, and results—not just code.
+      </p>
+
+      <p class="text-gray-500 mb-8 leading-relaxed">
+        From idea to launch, we handle everything—design, development, and optimization. Our goal is simple: build products that grow fast and scale without breaking.
+      </p>
+
+      <!-- Key Points -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <span class="text-red-600">✔</span>
+          <span class="text-gray-300 text-sm">Fast execution with modern tech</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-red-600">✔</span>
+          <span class="text-gray-300 text-sm">Clean UI/UX focused design</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-red-600">✔</span>
+          <span class="text-gray-300 text-sm">Built for scale and performance</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact" class="inline-block mt-8 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-semibold transition">
+        Work With Us →
+      </a>
+    </div>
+
+    <!-- Right Stats -->
+    <div class="grid grid-cols-2 gap-6 text-center">
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-3xl font-bold text-red-600">2+</h3>
+        <p class="text-gray-400 text-sm mt-2">Projects</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-3xl font-bold text-red-600">2+</h3>
+        <p class="text-gray-400 text-sm mt-2">Clients</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-3xl font-bold text-red-600">1+</h3>
+        <p class="text-gray-400 text-sm mt-2">Countries</p>
+      </div>
+
+      <div class="border border-gray-800 p-6 rounded-xl">
+        <h3 class="text-3xl font-bold text-red-600">99%</h3>
+        <p class="text-gray-400 text-sm mt-2">Satisfaction</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+    <section id="about" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="orb orb-2"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div>
+                    <span class="reveal text-brand-red text-sm font-semibold tracking-widest uppercase">About Us</span>
+                    <h2 class="reveal font-display text-4xl md:text-5xl font-bold mt-4 mb-6" style="transition-delay: 0.1s;">
+                        Who Are <span class="red-gradient-text">7Swan Traders</span>?
+                    </h2>
+                    <div class="reveal section-divider mb-8" style="transition-delay: 0.15s;"></div>
+                    <p class="reveal text-white/50 text-lg leading-relaxed mb-6" style="transition-delay: 0.2s;">
+                        We are a team of passionate developers, designers, and strategists dedicated to crafting digital products that make an impact. Founded on the principles of <strong class="text-white/80">innovation, speed, and precision</strong>, we partner with businesses and visionaries worldwide.
+                    </p>
+                    <p class="reveal text-white/40 leading-relaxed mb-8" style="transition-delay: 0.3s;">
+                        From startups to enterprises, we build solutions that aren't just functional — they're unforgettable. Our modern tech stack and agile workflows ensure every project is delivered on time, within budget, and beyond expectations.
+                    </p>
+                    <a href="#contact" class="reveal cta-btn !text-sm" style="transition-delay: 0.4s;">
+                        Work With Us
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Right Stats -->
+                <div class="reveal-right grid grid-cols-2 gap-5">
+                    <div class="p-7 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-red-900/30 transition-all duration-500 hover:-translate-y-1">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="text-xs text-white/30 mt-2 font-medium tracking-wider uppercase">Projects Delivered</div>
+                    </div>
+                    <div class="p-7 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-red-900/30 transition-all duration-500 hover:-translate-y-1">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="text-xs text-white/30 mt-2 font-medium tracking-wider uppercase">Happy Clients</div>
+                    </div>
+                    <div class="p-7 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-red-900/30 transition-all duration-500 hover:-translate-y-1">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="text-xs text-white/30 mt-2 font-medium tracking-wider uppercase">Countries Served</div>
+                    </div>
+                    <div class="p-7 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center hover:border-red-900/30 transition-all duration-500 hover:-translate-y-1">
+                        <div class="stat-number" data-count="99">0</div>
+                        <div class="text-xs text-white/30 mt-2 font-medium tracking-wider uppercase">% Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="why-us" class="py-24 bg-black text-white px-6">
+  <div class="max-w-6xl mx-auto text-center">
+
+    <!-- Header -->
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">
+      Why Choose <span class="text-red-600">7Swan</span>
+    </h2>
+    <p class="text-gray-400 max-w-xl mx-auto mb-14">
+      We don’t just build products — we build results that scale.
+    </p>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+      <!-- Item 1 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <h3 class="text-lg font-semibold mb-2 text-red-600">⚡ Fast Delivery</h3>
+        <p class="text-gray-400 text-sm">
+          Rapid development cycles without sacrificing quality. Launch faster than competitors.
+        </p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <h3 class="text-lg font-semibold mb-2 text-red-600">🎯 Result-Focused</h3>
+        <p class="text-gray-400 text-sm">
+          Every product is built to convert, retain users, and generate real business impact.
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <h3 class="text-lg font-semibold mb-2 text-red-600">📈 Scalable Systems</h3>
+        <p class="text-gray-400 text-sm">
+          Built to handle growth — from small user bases to large-scale platforms.
+        </p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="border border-gray-800 hover:border-red-600 p-6 rounded-xl transition">
+        <h3 class="text-lg font-semibold mb-2 text-red-600">🌍 Global Support</h3>
+        <p class="text-gray-400 text-sm">
+          Work with clients worldwide. Clear communication and reliable support at every stage.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-14">
+      <a href="#contact" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-lg font-semibold shadow-lg shadow-red-600/30 transition">
+        Start Your Project →
+      </a>
+    </div>
+
+  </div>
+</section>
+    <section id="why-us" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header -->
+            <div class="text-center mb-16 md:mb-20">
+                <span class="reveal text-brand-red text-sm font-semibold tracking-widest uppercase">Why Choose Us</span>
+                <h2 class="reveal font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-5" style="transition-delay: 0.1s;">
+                    Built <span class="red-gradient-text">Different</span>
+                </h2>
+                <p class="reveal text-white/40 max-w-xl mx-auto text-lg" style="transition-delay: 0.2s;">
+                    We don't just write code — we engineer experiences that set you apart from the competition.
+                </p>
+                <div class="reveal section-divider mx-auto mt-6" style="transition-delay: 0.25s;"></div>
+            </div>
+
+            <!-- Items Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+                <!-- Fast Delivery -->
+                <div class="why-item reveal" style="transition-delay: 0.1s;">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Fast Delivery</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">Agile workflows and optimized pipelines mean your project goes from concept to launch at record speed — without cutting corners.</p>
+                    </div>
+                </div>
+
+                <!-- Modern UI/UX -->
+                <div class="why-item reveal" style="transition-delay: 0.2s;">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Modern UI/UX</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">Pixel-perfect interfaces crafted with the latest design trends. Every interaction is intuitive, accessible, and delightful.</p>
+                    </div>
+                </div>
+
+                <!-- Scalable Solutions -->
+                <div class="why-item reveal" style="transition-delay: 0.3s;">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Scalable Solutions</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">Built on robust architectures that grow with you. Whether you're serving 100 users or 10 million, our solutions handle the load.</p>
+                    </div>
+                </div>
+
+                <!-- Global Support -->
+                <div class="why-item reveal" style="transition-delay: 0.4s;">
+                    <div class="why-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.893 13.393l-1.135-1.135a2.252 2.252 0 0 1-.421-.585l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 0 1-1.383-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18a.94.94 0 0 0-.662.274.931.931 0 0 1-1.458-1.137l1.411-2.353a2.25 2.25 0 0 0 .286-.76m11.928 9.869A9 9 0 0 0 8.965 3.525m11.928 9.868A9 9 0 1 1 8.965 3.525" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold mb-2">Global Support</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">Round-the-clock support across time zones. Wherever you are, we're just a message away with dedicated project managers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Flowbite CDN -->
+<script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
+<section id="contact" class="py-24 bg-black text-white px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left Content -->
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        Contact <span class="text-red-600">7Swan</span>
+      </h2>
+
+      <p class="text-gray-400 mb-8">
+        Have a project in mind? Send your details and get a response within 24 hours.
+      </p>
+
+      <!-- Info -->
+      <div class="space-y-4 text-sm text-gray-300">
+        <p><strong>Email:</strong> contact@7swanstudio.com</p>
+        <p><strong>Availability:</strong> Global / Remote</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="bg-gray-900 border border-gray-800 rounded-xl p-8">
+
+      <form onsubmit="sendToGmail(event)" class="space-y-5">
+
+  <!-- Name -->
+  <div>
+    <label class="block mb-2 text-sm text-gray-300">Your Name</label>
+    <input id="name" type="text" required
+      class="bg-gray-800 border border-gray-700 text-white rounded-lg w-full p-3">
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label class="block mb-2 text-sm text-gray-300">Email</label>
+    <input id="email" type="email" required
+      class="bg-gray-800 border border-gray-700 text-white rounded-lg w-full p-3">
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label class="block mb-2 text-sm text-gray-300">Message</label>
+    <textarea id="message" rows="4" required
+      class="bg-gray-800 border border-gray-700 text-white rounded-lg w-full p-3"></textarea>
+  </div>
+
+  <!-- Button -->
+  <button type="submit"
+    class="w-full bg-red-600 hover:bg-red-700 py-3 rounded-lg font-semibold">
+    Send Message
+  </button>
+
+</form>
+
+<script>
+function sendToGmail(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const subject = encodeURIComponent("New Project Inquiry from " + name);
+  const body = encodeURIComponent(
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n\n" +
+    "Message:\n" + message
+  );
+
+  window.location.href =
+    `https://mail.google.com/mail/?view=cm&fs=1&to=contact@7swanstudio.com&su=${subject}&body=${body}`;
+}
+</script>
+
+    </div>
+
+  </div>
+</section>
+    <section id="contact" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="hero-glow" style="bottom: -200px; left: 50%; transform: translateX(-50%); width: 500px; height: 500px;"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <!-- Left -->
+                <div>
+                    <span class="reveal text-brand-red text-sm font-semibold tracking-widest uppercase">Get In Touch</span>
+                    <h2 class="reveal font-display text-4xl md:text-5xl font-bold mt-4 mb-6" style="transition-delay: 0.1s;">
+                        Let's Build<br><span class="red-gradient-text">Something Great</span>
+                    </h2>
+                    <div class="reveal section-divider mb-8" style="transition-delay: 0.15s;"></div>
+                    <p class="reveal text-white/40 text-lg leading-relaxed mb-10" style="transition-delay: 0.2s;">
+                        Have a project in mind? We'd love to hear about it. Drop us a message and let's start a conversation.
+                    </p>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-6">
+                        <div class="reveal flex items-center gap-4" style="transition-delay: 0.3s;">
+                            <div class="w-12 h-12 rounded-xl bg-red-900/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs text-white/30 uppercase tracking-wider font-medium">Email Us</div>
+                                <a href="/cdn-cgi/l/email-protection#3655595842575542760145415758454243525f591855595b" class="text-white/70 hover:text-brand-red transition-colors font-medium"><span class="__cf_email__" data-cfemail="3f5c50514b5e5c4b7f084c485e514c4b4a5b5650115c5052">[email&#160;protected]</span></a>
+                            </div>
+                        </div>
+                        <div class="reveal flex items-center gap-4" style="transition-delay: 0.4s;">
+                            <div class="w-12 h-12 rounded-xl bg-red-900/20 flex items-center justify-center flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0000" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="text-xs text-white/30 uppercase tracking-wider font-medium">Based</div>
+                                <span class="text-white/70 font-medium">Global · Remote-First Team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="reveal-right">
+                    <form id="contactForm" class="p-8 md:p-10 rounded-2xl bg-white/[0.02] border border-white/[0.06]" novalidate>
+                        <div class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-xs text-white/30 uppercase tracking-wider font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" class="form-input" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs text-white/30 uppercase tracking-wider font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" class="form-input" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-xs text-white/30 uppercase tracking-wider font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." class="form-input resize-none" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-btn w-full justify-center !text-base mt-2">
+                                Send Message
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-black border-t border-gray-800 text-white py-16 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Brand -->
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-bold">
+          7S
+        </div>
+        <h3 class="text-lg font-semibold">7SwanStudio</h3>
+      </div>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        Building high-performance digital products for global clients. Fast, scalable, and result-driven solutions.
+      </p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h4 class="text-sm font-semibold mb-4 text-gray-300">Quick Links</h4>
+      <ul class="space-y-2 text-sm text-gray-400">
+        <li><a href="#hero" class="hover:text-red-600 transition">Home</a></li>
+        <li><a href="#services" class="hover:text-red-600 transition">Services</a></li>
+        <li><a href="#about" class="hover:text-red-600 transition">About</a></li>
+        <li><a href="#contact" class="hover:text-red-600 transition">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h4 class="text-sm font-semibold mb-4 text-gray-300">Contact</h4>
+      <p class="text-gray-400 text-sm mb-2">contact@7swanstudio.com</p>
+      <p class="text-gray-500 text-sm">Global • Remote</p>
+
+      <!-- CTA -->
+      <a href="#contact" class="inline-block mt-5 bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg text-sm font-semibold transition">
+        Start Project
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+    © 2026 7SwanStudio. All rights reserved.
+  </div>
+</footer>
+    <footer class="border-t border-white/[0.06] py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                <!-- Logo & Tagline -->
+                <div class="text-center md:text-left">
+                    <a href="#hero" class="inline-flex items-center gap-2 mb-3">
+                        <div class="w-9 h-9 rounded-lg bg-brand-red flex items-center justify-center">
+                            <span class="text-white font-bold font-display text-sm">7S</span>
+                        </div>
+                        <span class="logo-text text-lg">
+                            <span class="logo-7">7</span>Swan Studio
+                        </span>
+                    </a>
+                    <p class="text-white/30 text-sm leading-relaxed">Building the future, one product at a time.</p>
+                </div>
+
+                <!-- Social -->
+                <div class="flex items-center justify-center gap-4">
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-red-900/20 hover:border-red-900/30 transition-all duration-300" aria-label="Twitter / X">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white/50">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-red-900/20 hover:border-red-900/30 transition-all duration-300" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white/50">
+                            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-red-900/20 hover:border-red-900/30 transition-all duration-300" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white/50">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center hover:bg-red-900/20 hover:border-red-900/30 transition-all duration-300" aria-label="Discord">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-white/50">
+                            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-center md:text-right">
+                    <p class="text-white/20 text-sm">&copy; 2025 7Swan Studio. All rights reserved.</p>
+                    <p class="text-white/10 text-xs mt-1">Crafted with precision & passion.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Message sent successfully! ✓</div>
+
+    <!-- ============================== -->
+    <!--          JAVASCRIPT            -->
+    <!-- ============================== -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function() {
+        'use strict';
+
+        // === NAVBAR SCROLL ===
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = scrollY;
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // === ACTIVE NAV LINK ===
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function updateActiveNav() {
+            const scrollY = window.scrollY + 200;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                if (scrollY >= top && scrollY < top + height) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+        // === MOBILE MENU ===
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileOverlay.addEventListener('click', closeMobile);
+
+        window.closeMobile = function() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        // === SCROLL REVEAL (Intersection Observer) ===
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // === COUNTER ANIMATION ===
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsCounted = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsCounted) {
+                    statsCounted = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.dataset.count);
+                        const duration = 2000;
+                        const start = performance.now();
+
+                        function updateCount(timestamp) {
+                            const progress = Math.min((timestamp - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            stat.textContent = Math.floor(eased * target) + (target === 99 ? '%' : '+');
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCount);
+                            }
+                        }
+                        requestAnimationFrame(updateCount);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        statNumbers.forEach(stat => statsObserver.observe(stat));
+
+        // === PARTICLES ===
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = window.innerWidth < 768 ? 15 : 30;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = (Math.random() * 3 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            particlesContainer.appendChild(particle);
+        }
+
+        // === CONTACT FORM ===
+        const form = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.querySelector('#name').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const message = form.querySelector('#message').value.trim();
+
+            if (!name || !email || !message) {
+                showToast('Please fill in all fields.', true);
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showToast('Please enter a valid email.', true);
+                return;
+            }
+
+            // Simulate submission
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = `<svg class="w-5 h-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...`;
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.reset();
+                btn.innerHTML = `Send Message <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>`;
+                btn.disabled = false;
+                showToast('Message sent successfully! ✓');
+            }, 1500);
+        });
+
+        function showToast(msg, isError) {
+            toast.textContent = msg;
+            toast.style.background = isError ? 'rgba(200,0,0,0.9)' : 'rgba(255,0,0,0.9)';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        // === SMOOTH SCROLL for safari ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // === KEYBOARD ACCESSIBILITY FOR HAMBURGER ===
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>
